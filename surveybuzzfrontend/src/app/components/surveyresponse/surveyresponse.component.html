@@ -1,0 +1,70 @@
+<!--Created By web Dev Crew
+  Date : Dec 11,2022
+  Survey Buzz -A survey site -->
+
+  <!--Survey Response page for anonymous users -->
+
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-4">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Survey ID</th>
+            <th scope="col">Survey Name</th>
+            <th scope="col">Survey Created Date</th>
+            <th scope="col">Survey Expiry Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let survey of Surveys; let i = index">
+            <td>{{ survey.Surveyid }}</td>
+            <td>{{ survey.Surveyname }}</td>
+            <td>{{ survey.CreatedDate }}</td>
+            <td>{{ survey.ExpiryDate }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <form [formGroup]="updateForm" (ngSubmit)="onUpdate()">
+        <div *ngFor="let survey of Surveys; let i = index">
+        <div class="form-group">
+          <p><b>Survey Question 1:</b> {{ survey.SurveyQuestion1}}</p>
+            <label>Answer</label>
+            <input
+              class="form-control"
+              type="text"
+              formControlName="SurveyAnswer1"
+            />
+          </div>  
+          <div class="form-group">
+            <p><b>Survey Question 2:</b> {{ survey.SurveyQuestion2}}</p>
+              <label>Answer</label>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="SurveyAnswer2"
+              />
+            </div>
+    
+            <div class="form-group">
+              <p><b>Survey Question 3:</b> {{ survey.SurveyQuestion3}}</p>
+                <label>Answer</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  formControlName="SurveyAnswer3"
+                />
+              </div>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            <i class="fa fa-check-square-o"></i> Submit
+          </button> &nbsp;
+          <a href="/survey-list" class="btn btn-warning"
+            ><i class="fa fa-undo"></i> Cancel</a
+          >
+      </form>
+    </div>
+  </div>
+  

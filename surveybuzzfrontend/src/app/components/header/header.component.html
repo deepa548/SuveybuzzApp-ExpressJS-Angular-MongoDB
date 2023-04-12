@@ -1,0 +1,78 @@
+
+<!--Created By web Dev Crew
+  Date : Dec 11,2022
+  Survey Buzz -A survey site -->
+
+ <!-- Main Navigation -->
+<link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+crossorigin="anonymous"
+/>
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+crossorigin="anonymous"
+/>
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #4F7942;">
+    <a class="navbar-brand" href="/"><b>Survey Buzz</b></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse align-items-center">
+        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a style="color: white;" href="/"><i class="nav-link fa fa-home fa-lg" style="color: white;"></i> Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a style="color: white;"
+               routerLinkActive="active"
+               routerLink="/survey-list"
+              ><i class="nav-link fa fa-list fa-lg" style="color: white;"> </i> Survey List</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a style="color: white;"
+               routerLinkActive="active"
+               routerLink="/add-survey"
+              ><i class="nav-link fa fa-square-poll-vertical fa-lg" style="color: white;"> </i> Add Survey</a
+            >
+          </li>
+          &nbsp;&nbsp;
+          <li class="nav-item">
+            <a *ngIf="this.authService.isLoggedIn"
+                routerLinkActive="active"
+                routerLink="/user-profile/{{ this.userID }}"
+                class="btn btn-outline-primary" style="color: white;">User Profile</a>
+          <a
+            *ngIf="!this.authService.isLoggedIn"
+            class="btn btn-outline-success"
+            routerLinkActive="active"
+            routerLink="/log-in"><i class="fa-solid fa-right-to-bracket"></i> Sign in</a>
+          </li>
+          &nbsp;
+          <li class="nav-item">
+            <a
+            *ngIf="!this.authService.isLoggedIn"
+            class="btn btn-outline-primary"
+            routerLinkActive="active"
+            routerLink="/sign-up"
+            style="color: white;"><i class="fa-solid fa-user-plus"></i> Sign up</a>
+          <button
+            (click)="logout()"
+            *ngIf="this.authService.isLoggedIn"
+            type="button"
+            class="btn btn-danger">Logout</button>
+          </li>
+        </ul>
+
+      </div>
+  </nav>
+  

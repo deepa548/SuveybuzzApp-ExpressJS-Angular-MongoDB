@@ -1,0 +1,42 @@
+<!--Created By web Dev Crew
+  Date : Dec 11,2022
+  Survey Buzz -A survey site -->
+
+  <!--User Profile Page With Survey reports.-->
+
+<div class="row justify-content-center mt-5">
+  <div class="col-md-4">
+    <div class="row">
+      <div class="inner-main">
+        <h2 class="mb-4">User Profile</h2>
+        <p><strong>Name:</strong> {{ this.currentUser.name }}</p>
+        <p><strong>Email:</strong> {{ this.currentUser.email }}</p>
+        </div>
+      </div>
+  </div>
+  <div class="col-md-6">
+    <button (click)="exportexcel()">Export to Excel</button>
+    <h2 class="h2">Survey Statistics</h2>
+    <table class="table table-striped" id="export-table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Survey ID</th>
+          <th scope="col">Survey Name</th>
+          <th scope="col">Survey Created Date</th>
+          <th scope="col">Survey Expiry Date</th>
+          <th scope="col">Number of Respondents</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let survey of Surveys; let i = index">
+          <td>{{ i }}</td>
+          <td>{{ survey.Surveyid }}</td>
+          <td>{{ survey.Surveyname }}</td>
+          <td>{{ survey.CreatedDate }}</td>
+          <td>{{ survey.ExpiryDate }}</td>
+          <td>{{ this.NoResp }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
